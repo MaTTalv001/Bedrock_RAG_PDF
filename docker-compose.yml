@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  bedrock-doc-search:
+    build: .
+    volumes:
+      - ./datasets:/app/datasets
+      - ./vectorstore:/app/vectorstore
+    env_file:
+      - .env
+    command: bash -c "python vectorstore.py && python qa.py"
