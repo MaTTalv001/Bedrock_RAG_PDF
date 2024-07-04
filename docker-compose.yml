@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  bedrock-doc-search:
+  app:
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,4 +9,4 @@ services:
       - ./datasets:/app/datasets
       - ./vectorstore:/app/vectorstore
       - ~/.aws:/root/.aws:ro  # ホストのAWS設定をコンテナにマウント
-    command: tail -f /dev/null  # コンテナを常時稼働させる
+    command: bash -c "./startup.sh && tail -f /dev/null"  # コンテナを常時稼働させる

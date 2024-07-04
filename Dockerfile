@@ -15,4 +15,7 @@ RUN apt-get update && apt-get install -y awscli
 # AWS認証情報をコピーするためのディレクトリを作成
 RUN mkdir -p /root/.aws
 
+COPY startup.sh .
+RUN chmod +x startup.sh
+
 CMD ["bash"]

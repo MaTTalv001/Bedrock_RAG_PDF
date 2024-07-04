@@ -7,4 +7,4 @@ fi
 
 QUERY="$1"
 
-docker-compose exec bedrock-doc-search python qa.py "$QUERY"
+docker-compose exec app python qa.py "$QUERY"
